@@ -6,11 +6,13 @@ it only takes own sources and not forks, stores them as zip file in a folder
 forks are skipped at this point, script not supports branch detection or zip creation of all branches
 only master branch is saved
 """
-
-import requests
-import sys
-import datetime
-import os
+try:
+    import requests
+    import sys
+    import datetime
+    import os
+except ModuleNotFoundError:
+    raise Exception('install all modules with: pip install -r requirements.txt')
 
 username = 'garmann'
 github_url = 'https://api.github.com/users/' + username + '/repos?per_page=1000'
